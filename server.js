@@ -23,5 +23,8 @@ io.on('connection', (socket) => {
         if (readyPlayerCount === 2) {
             io.emit('startGame', socket.id);
         }
+    }); 
+    socket.on('padleMove', (padleData) => {
+        socket.broadcast.emit('padleMove', padleData);
     });
 });
